@@ -18,3 +18,14 @@ firebase.initializeApp(config);
            mensaje:document.getElementById("mensaje").value,
        })
 })
+
+firebase.database().ref('michat').on('value',(snapshot)=>{
+  var html=""
+  snapshot.forEach((e)=>{
+    var element = e.val();
+    var nombre= element.nombre;
+    var mensaje = element.mensaje;
+    html +="<li><b>"+nombre+": </b>"+mensaje+"</li>"
+  })
+  chatUl.innerHTML=html;
+})
