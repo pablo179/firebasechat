@@ -4,27 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Chat firebase</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <form action="">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre">
-        </form>
+    <div class="header">
+        <span class="log"></span>
+        <span class="out"></span>
     </div>
-
-    <div>
-        <label for="mensaje">Mensaje</label>
-        <textarea name="" id="mensaje"> </textarea>
+    <div class="chatbox" id="chatUl">
+        <div class="messec">
+            <div class="mess">
+                <p class="title">Nombre</p>
+                <img src="" alt="">
+                <div class="file"></div>
+                <p class="content">Mensaje</p>
+            </div>
+        </div>
     </div>
-    <button id="btnenviar">Enviar</button>
-
-    <ul id="chatUl">
-        <li>
-            <b>Nombre: </b> Mensaje
-        </li>
-    </ul>
+    <div class=" boxmes ">
+            <button id="btnenviar">Enviar</button>
+        <input name="" id="mensaje"> </textarea>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
     <script src="script.js"></script>
 </body>
