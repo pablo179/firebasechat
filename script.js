@@ -16,3 +16,14 @@ let login=()=>{
     console.log(e.code)
   });
 }
+let logout=()=>{
+  firebase.auth().signOut();
+}
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log(user)
+    document.getElementById("login").classList.add("sethide")
+    document.getElementById("chat").classList.remove("sethide")
+  } else {
+  }
+});
