@@ -8,23 +8,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <span class="log"></span>
-        <span class="out"></span>
+
+    <div class="logincontainer" id="login">
+        <div class="headlog">Login</div>
+        <form action="." class="logbody">
+            <input id="email" type="email" placeholder="email" required>
+            <input id="password" type="password" placeholder="password" required>
+            <input onclick="login()" type="button" class="inpbut" value="Aceptar">
+        </form>
     </div>
-    <div class="chatbox" id="chatUl">
-        <div class="messec">
-            <div class="mess">
-                <p class="title">Nombre</p>
-                <img src="" alt="">
-                <div class="file"></div>
-                <p class="content">Mensaje</p>
+
+    <div class="chatcontainer sethide" id="chat">
+        <div class="side">
+            <span class="kitt"></span>
+        </div>
+        <div class="chatbox">
+            <div class="headchat"> 
+                <div class="picpro"></div>
+                <div class="name"></div> 
+            </div>
+            <div class="chat">
+                <div class="message">
+                    <div class="meshea">
+                        <span class="date">10:10AM 12/10/12</span>
+                        <span class="name">Pablo</span>
+                    </div>
+                    <div class="mescon">
+                        <img src="" alt="" class="mesima">
+                        <div class="mesfil"></div>
+                        <p class="text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class=" boxmes ">
+                <input class="mesare" id="mensaje"/>
+                <div class="btnare">
+                    <span class="file"></span>
+                    <button class="send"></button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class=" boxmes ">
-            <button id="btnenviar">Enviar</button>
-        <input name="" id="mensaje"> </textarea>
     </div>
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
     <script src="script.js"></script>
