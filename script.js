@@ -7,7 +7,6 @@ storageBucket: "gs://chat-firebase-50a59.appspot.com",
   messagingSenderId: "90688095066"
 };
 firebase.initializeApp(config);
-
 firebase.auth().onAuthStateChanged(user=>{
   console.log(user)
   if (user) {
@@ -21,7 +20,8 @@ firebase.auth().onAuthStateChanged(user=>{
         console.log(error)
       });
     }
-
+    document.getElementById("disnom").innerHTML+=user.displayName;
+    document.getElementById("dispic").innerHTML+="<img src="+user.photoURL+">"
     showchat()
   } else {
     showlogin()
