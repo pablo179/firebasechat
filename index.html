@@ -6,33 +6,106 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chat firebase</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
-
-    <div class="logincontainer" id="login">
+    <div class="logincontainer sethide" id="login">
         <div class="headlog">Login</div>
-        <form action="." class="logbody">
+        <form class="logbody" onsubmit="return false">
             <input id="email" type="email" placeholder="email" required>
             <input id="password" type="password" placeholder="password" required>
-            <input onclick="login()" type="button" class="inpbut" value="Aceptar">
+            <input onclick="login()" type="submit" class="inpbut" value="Aceptar">
         </form>
+          <input onclick="showsignin()" type="submit" class="inpbut regbut" value="Registrarse">
+    </div>
+
+    <div class="signincontainer sethide" id="signin">
+        <div class="headlog">Sign In</div>
+        <form class="logbody" onsubmit="return false">
+            <input id="email2" type="email" placeholder="email" required>
+            <input type="text" id="name" placeholder="nombre" required>
+            <input type="text" id="urlimg" placeholder="url de imagen" required>
+            <input id="password2" type="password" placeholder="password" required>
+            <input onclick="signin()" type="submit" class="inpbut" value="Aceptar">
+        </form>
+        <input onclick="showlogin()" type="submit" class="inpbut regbut" value="Regresar">
     </div>
 
     <div class="chatcontainer sethide" id="chat">
-        <button onclick="logout()">log out</button>
+            <div class="cat">
+                    <div class="cat__head">
+                      <div class="cat__eyes">
+                        <div class="cat__eye cat__eye-left"></div>
+                        <div class="cat__eye cat__eye-right"></div>
+                      </div>
+                      <div class="cat__ears">
+                        <div class="cat__ear cat__ear-left"></div>
+                        <div class="cat__ear cat__ear-right"></div>
+                      </div>
+                    </div>
+                    <div class="cat__body"></div>
+                    <div class="cat__tail">
+                      <div class="line-one">
+                        <div class="line-one">
+                          <div class="line-one">
+                            <div class="line-one">
+                              <div class="line-one">
+                                <div class="line-one">
+                                  <div class="line-one">
+                                    <div class="line-one">
+                                      <div class="line-one">
+                                        <div class="line-one">
+                                          <div class="line-two">
+                                            <div class="line-two">
+                                              <div class="line-two">
+                                                <div class="line-two">
+                                                  <div class="line-two">
+                                                    <div class="line-two">
+                                                      <div class="line-two">
+                                                        <div class="line-two">
+                                                          <div class="line-two">
+                                                            <div class="line-two">
+                                                              <div class="line-two">
+                                                                <div class="line-two">
+                                                                  <div class="line-two"></div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         <div class="side">
+            <button onclick="logout()">log out</button>
             <span class="kitt"></span>
         </div>
         <div class="chatbox">
             <div class="headchat"> 
-                <div class="picpro"></div>
-                <div class="name"></div> 
+                <div class="picpro"> <img src="picpro.jpg" alt=""> </div>
+                <div class="name">Pablo David Castillo Morales</div> 
             </div>
             <div class="chat">
                 <div class="message">
                     <div class="meshea">
-                        <span class="date">10:10AM 12/10/12</span>
-                        <span class="name">Pablo</span>
+                        <span class="mesdate">10:10AM 12/10/12</span>
+                        <span class="mesname">Pablo</span>
                     </div>
                     <div class="mescon">
                         <img src="" alt="" class="mesima">
@@ -42,10 +115,11 @@
                 </div>
             </div>
             <div class=" boxmes ">
-                <input class="mesare" id="mensaje"/>
+                <textarea placeholder="Escribe un mensaje..." rows="3" class="mesare" id="mensaje"></textarea>
                 <div class="btnare">
-                    <span class="file"></span>
-                    <button class="send"></button>
+                    <span class="file far fa-file"></span>
+                    <span class="file far fa-file-image"></span>
+                    <button class="send">SEND</button>
                 </div>
             </div>
         </div>
