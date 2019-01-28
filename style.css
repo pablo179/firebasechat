@@ -134,7 +134,7 @@ outline: none;
 .picpro{
     width: 22%;
     height: 100%;
-    padding: 7px;
+    padding: 5px;
     float: left;
     background: rgba(30, 247, 23, 0.507);
     border-radius: 50%;
@@ -164,6 +164,93 @@ outline: none;
     padding: 0 15px;
     padding-top: 15px; 
 }
+.message.left{
+  width: 75%;
+}
+.message.left .point{
+  background: #86BB71;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  display: inline-flex;
+}
+.message.left .meshea{
+  width: 100%;
+  height: 20px;
+}
+.mesdate{
+  color: #696a6e;
+}
+.message.left .mescon{
+  background: #86BB71;
+  color: white;
+  line-height: 20px;
+  font-size: 100%;
+  border-radius: 7px;
+  width: 90%;
+  padding:14px;
+  margin-top:15px;
+  position: relative;
+}
+.message.left .mescon::after{
+  content:"";
+  position: absolute;
+  top:-8px;
+  background: #86BB71;
+  width:16px;
+  height: 16px;
+  transform: rotateZ(45deg) rotateY(20deg);
+}
+.message.left .mesfil{
+  width:100%;
+}
+.message.left .text{
+  width:100%;
+}
+.message.right{
+  width: 75%;
+  float: right;
+}
+.message.right .point{
+  background: #5BE3D4;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  float: right;
+  margin-top: 3px;
+}
+.message.right .meshea{
+  width: 100%;
+  height: 20px;
+  text-align: right;
+}
+.message.right .mesname{
+  margin-right: 7px;
+}
+.message.right .mescon{
+  background: #5BE3D4;
+  color: white;
+  line-height: 20px;
+  font-size: 16px;
+  border-radius: 7px;
+  width: 90%;
+  padding:14px;
+  float: right;
+  margin-top:15px;
+  position: relative;
+}
+.message.right .mescon::after{
+  content:"";
+  position: absolute;
+  top:-8px;
+  right: 20px;
+  background: #5BE3D4;
+  width:16px;
+  height: 16px;
+  transform: rotateZ(45deg) rotateY(20deg);
+}
+
+
 .boxmes{
     width: 100%;
     height: 25%;
@@ -202,8 +289,6 @@ outline: none;
     background: rgb(214, 217, 219);
     transform: scale(1.2,1.2);
 }
-
-
 .cat {
     position: absolute;
     top: -55px;
@@ -854,8 +939,6 @@ outline: none;
             transform: rotate(-10deg);
   }
 }
-
-
 .sethide{
     display: none;
 }

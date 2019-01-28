@@ -7,8 +7,17 @@ storageBucket: "gs://chat-firebase-50a59.appspot.com",
   messagingSenderId: "90688095066"
 };
 firebase.initializeApp(config);
+
+firebase.database().ref('chat').on('value',function(snapshot){
+  var html='';
+  snapshot.forEach(e=>{
+    var element=e.val();
+    console.log(element)
+    html+="<div class='message left'><div class='meshea'> <div class='point'></div> <span class='mesdate'>"+element.date+"</span><span class='mesname'>"+element.name+"</span></div><div class='mescon'><div class='mesfil'>"+element.file+"</div><p class='text'>"+element.message+"</p></div></div>"
+  })
+  document.getElementById('thechat').innerHTML=html;
+})
 firebase.auth().onAuthStateChanged(user=>{
-  console.log(user)
   if (user) {
     if(!user.displayName){
       user.updateProfile({
@@ -23,6 +32,7 @@ firebase.auth().onAuthStateChanged(user=>{
     document.getElementById("disnom").innerHTML+=user.displayName;
     document.getElementById("dispic").innerHTML+="<img src="+user.photoURL+">"
     showchat()
+    //loadmessage(user)
   } else {
     showlogin()
   }
@@ -78,4 +88,19 @@ let showchat=()=>{
   if(document.getElementById("chat").classList.contains("sethide")){
     document.getElementById("chat").classList.remove("sethide")
   }
+}
+let sendMessage=()=>{
+  let email=firebase.auth().currentUser.email
+  let name=firebase.auth().currentUser.displayName
+  let date= new Date().toLocaleDateString();
+  let messagetxt=document.getElementById('mensaje').value;
+  console.log(email,name,date,messagetxt);
+  firebase.database().ref('chat').push({
+    email:email,
+    name:name,
+    date:date,
+    message:messagetxt,
+    image:null,
+    file:null
+  }).then(document.getElementById('mensaje').value="").catch(e=>console.log(e))
 }
