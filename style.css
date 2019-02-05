@@ -166,6 +166,7 @@ outline: none;
 }
 .message.left{
   width: 75%;
+  margin-bottom: 10px;
 }
 .message.left .point{
   background: #86BB71;
@@ -201,31 +202,26 @@ outline: none;
   height: 16px;
   transform: rotateZ(45deg) rotateY(20deg);
 }
-.message.left .mesfil{
+.message .mesfil{
   width:100%;
 }
-.message.left .text{
+.message .text{
   width:100%;
 }
 .message.right{
   width: 75%;
-  float: right;
+  margin-bottom: 10px;
 }
 .message.right .point{
   background: #5BE3D4;
   border-radius: 50%;
   height: 14px;
   width: 14px;
-  float: right;
-  margin-top: 3px;
+  display: inline-flex;
 }
 .message.right .meshea{
   width: 100%;
   height: 20px;
-  text-align: right;
-}
-.message.right .mesname{
-  margin-right: 7px;
 }
 .message.right .mescon{
   background: #5BE3D4;
@@ -235,7 +231,6 @@ outline: none;
   border-radius: 7px;
   width: 90%;
   padding:14px;
-  float: right;
   margin-top:15px;
   position: relative;
 }
@@ -243,11 +238,18 @@ outline: none;
   content:"";
   position: absolute;
   top:-8px;
-  right: 20px;
   background: #5BE3D4;
   width:16px;
   height: 16px;
   transform: rotateZ(45deg) rotateY(20deg);
+}
+.previmg{
+  width: 20%;
+  position: absolute;
+  bottom:20%;
+  height: 20%;
+  border:4px solid #86BB71;
+  text-indent: -10000px
 }
 
 
@@ -265,8 +267,7 @@ outline: none;
 }
 .btnare{
     width: 100%;
-    height: 40%;
-    padding: 5px;
+    height: 50%;
 }
 .file{
     font-size: 20px;
@@ -288,6 +289,9 @@ outline: none;
     color: rgb(41, 128, 179);
     background: rgb(214, 217, 219);
     transform: scale(1.2,1.2);
+}
+.mesima{
+  width: 100%;
 }
 .cat {
     position: absolute;

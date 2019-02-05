@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="logincontainer sethide" id="login">
-        <div class="headlog">Login</div>
+        <div class="headlog">Login</div>w
         <form class="logbody" onsubmit="return false">
             <input id="email" type="email" placeholder="email" required>
             <input id="password" type="password" placeholder="password" required>
@@ -94,7 +94,6 @@
                   </div>
         <div class="side">
             <button onclick="logout()">log out</button>
-            <span class="kitt"></span>
         </div>
         <div class="chatbox">
             <div class="headchat"> 
@@ -109,8 +108,8 @@
                         <span class="mesname">Pablo</span>
                     </div>
                     <div class="mescon">
-                        <!-- <img src="" alt="" class="mesima"> -->
-                        <div class="mesfil">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam culpa nesciunt maxime ipsa harum voluptatem reprehenderit iste provident quas minima amet repellat animi quo, dolores fugiat illo! Doloribus, accusamus itaque? </div>
+                        <img src="" alt="" class="mesima">
+                        <div class="mesfil">Aqui un archivo </div>
                         <p class="text">Aqui hay un mensaje</p>
                     </div>
                 </div>
@@ -118,8 +117,10 @@
             <div class=" boxmes ">
                 <textarea placeholder="Escribe un mensaje..." rows="3" class="mesare" id="mensaje"></textarea>
                 <div class="btnare">
-                    <span class="file far fa-file"></span>
-                    <span class="file far fa-file-image"></span>
+                    <span class="file far fa-file"  >
+                      <input id="sendimg2" placeholder="archivo" type="file"></span>
+                      <span class="file far fa-file-image" >
+                        <input id="sendimg" type="file" accept="image/*" ></span>
                     <button class="send" onclick="sendMessage()">SEND</button>
                 </div>
             </div>
