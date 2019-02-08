@@ -7,24 +7,29 @@ storageBucket: "gs://chat-firebase-50a59.appspot.com",
   messagingSenderId: "90688095066"
 };
 firebase.initializeApp(config);
-
+var theurlimg=""
+var theurlfile=""
 firebase.database().ref('chat').on('value',function(snapshot){
   var html='';
   snapshot.forEach(e=>{
     var element=e.val();
-    console.log(element)
-    html+="<div class='message left'><div class='meshea'> <div class='point'></div> <span class='mesdate'>"+element.date+"</span><span class='mesname'>"+element.name+"</span></div><div class='mescon'><div class='mesfil'>"+element.file+"</div><p class='text'>"+element.message+"</p></div></div>"
+    if(element.email==firebase.auth().currentUser.email)html+="<div class='message right'>"
+    else html+="<div class='message left'>"
+    html+="<div class='meshea'> <div class='point'></div> <span class='mesdate'>"+element.date+"</span><span class='mesname'>"+element.name+"</span></div><div class='mescon'>"
+    if(element.file)html+="<a href='"+element.file+"' class='mesfil' target='_blank'> Archivo adjunto</a>"
+    if(element.image)html+="<img src="+element.image+" class='mesima'>"
+    if(element.message)html+="<p class='text'>"+element.message+"</p>"
+    html+="</div></div>"
   })
   document.getElementById('thechat').innerHTML=html;
 })
+
 firebase.auth().onAuthStateChanged(user=>{
   if (user) {
     if(!user.displayName){
       user.updateProfile({
           displayName:document.getElementById("name").value,
           photoURL: document.getElementById("urlimg").value
-      }).then(function() {
-        // Update successful.
       }).catch(function(error) {
         console.log(error)
       });
@@ -32,7 +37,6 @@ firebase.auth().onAuthStateChanged(user=>{
     document.getElementById("disnom").innerHTML+=user.displayName;
     document.getElementById("dispic").innerHTML+="<img src="+user.photoURL+">"
     showchat()
-    //loadmessage(user)
   } else {
     showlogin()
   }
@@ -94,13 +98,68 @@ let sendMessage=()=>{
   let name=firebase.auth().currentUser.displayName
   let date= new Date().toLocaleDateString();
   let messagetxt=document.getElementById('mensaje').value;
-  console.log(email,name,date,messagetxt);
+  let image=theurlimg  
+  let file=theurlfile
   firebase.database().ref('chat').push({
     email:email,
     name:name,
     date:date,
     message:messagetxt,
-    image:null,
-    file:null
-  }).then(document.getElementById('mensaje').value="").catch(e=>console.log(e))
+    image:image,
+    file:file
+  }).then(()=>{
+    document.getElementById('mensaje').value=""
+    document.getElementById('sendimg').value=""
+    document.getElementById('sendimg2').value=""
+    theurlimg=""
+    theurlfile=""
+  }).catch(e=>console.log(e))
 }
+
+document.getElementById('sendimg').addEventListener('change', (evento)=>{
+  evento.preventDefault();
+  var archivo  = evento.target.files[0];
+  subirArchivo(archivo);
+});  
+
+
+function subirArchivo(archivo) {
+var refStorage = firebase.storage().ref('carpetaArchivos').child(archivo.name);
+var uploadTask = refStorage.put(archivo);
+
+uploadTask.on('state_changed', null,
+  function(error) {
+  console.log('Error al cargar archivo', error);
+  },
+function() {
+  let url=uploadTask.snapshot.ref.getDownloadURL().then((miurl)=>{
+    theurlimg=miurl
+  })
+  
+}
+);
+}
+
+document.getElementById('sendimg2').addEventListener('change', function(evento){
+  evento.preventDefault();
+  var archivo  = evento.target.files[0];
+  subirArchivo2(archivo);
+}); 
+
+function subirArchivo2(archivo) {
+  var refStorage = firebase.storage().ref('carpetaArchivos').child(archivo.name);
+  var uploadTask = refStorage.put(archivo);
+  
+  uploadTask.on('state_changed', null,
+    function(error) {
+    console.log('Error al cargar archivo', error);
+    },
+  function() {
+    let url=uploadTask.snapshot.ref.getDownloadURL().then((miurl)=>{
+      theurlfile=miurl
+    })
+    
+  }
+  );
+  }
+  
